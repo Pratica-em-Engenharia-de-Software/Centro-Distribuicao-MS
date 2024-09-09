@@ -46,9 +46,9 @@ jobs:
     - name: Run tests with JaCoCo
       run: mvn test jacoco:report --batch-mode
 
-    - name: Codacy analysis
+    - name: Codacy coverage report
       env:
-        CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }} # Referência ao segredo
       run: |
         bash <(curl -Ls https://coverage.codacy.com/get.sh) report \
         --project-token ${{ secrets.CODACY_PROJECT_TOKEN }} \
