@@ -18,6 +18,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      security-events: write
 
     steps:
     - uses: actions/checkout@v4
