@@ -1,10 +1,6 @@
 package com.pes.centro_distribuicao_ms.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -21,5 +17,5 @@ public class Address {
     private String city;
     private String neighborhood;
     private String street;
-    private int number;
+    private Integer number;
 }
