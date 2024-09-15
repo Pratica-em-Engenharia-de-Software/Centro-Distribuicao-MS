@@ -24,12 +24,6 @@ public class CDMapper {
 
         response.setAddress(addressResponse);
 
-
-
-
-
-
-
         return response;
     }
 }

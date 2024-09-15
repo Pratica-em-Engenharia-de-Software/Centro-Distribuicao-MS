@@ -1,41 +1,37 @@
 package com.pes.centro_distribuicao_ms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.server.ResponseStatusException;
 
-import com.pes.centro_distribuicao_ms.controller.AddressResponse;
 import com.pes.centro_distribuicao_ms.controller.CDResponse;
-import com.pes.centro_distribuicao_ms.domain.Address;
-import com.pes.centro_distribuicao_ms.domain.CentroDistribuicao;
-import com.pes.centro_distribuicao_ms.repository.AddressRepository;
+import com.pes.centro_distribuicao_ms.mapper.CDMapper;
 import com.pes.centro_distribuicao_ms.repository.CDRepository;
+
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
+
+import java.util.List;
+import java.util.stream.Collectors;;
 
 public class CDService {
     
     @Autowired
     private CDRepository cdRepository;
-    @Autowired
-    private AddressRepository addressRepository;
 
-    public CDResponse getByID(Long codCD){
-        CentroDistribuicao temp = cdRepository.getReferenceById(codCD);
-        CDResponse response = new CDResponse();
-        response.setCode(temp.getCode());
-        response.setEmail(temp.getEmail());
-        response.setName(temp.getName());
-        response.setPhone(temp.getPhone());
-        Address temp2 = temp.getAddress();
+    public CDResponse getCDByID(long codCD){
+        return cdRepository.findById(codCD)
+        .map(CDMapper::toResponse)
+        .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "CD not found"));
+    }
 
-        AddressResponse temp3 = new AddressResponse();
+    public CDResponse getCDByName(String nameCD){
+        return cdRepository.findByName(nameCD)
+        .map(CDMapper::toResponse)
+        .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "CD not found"));
+    }
 
-        temp3.setCity(temp2.getCity());
-        temp3.setCountry(temp2.getCountry());
-        temp3.setNeighborhood(temp2.getNeighborhood());
-        temp3.setNumber(temp2.getNumber());
-        temp3.setState(temp2.getState());
-        temp3.setStreet(temp2.getStreet());
-
-        response.setAddress(temp3);
-
-        return response;
+    public List<CDResponse> getAllCDs(){
+        return cdRepository.findAll().stream()
+        .map(CDMapper::toResponse)
+        .collect(Collectors.toList());
     }
 }
