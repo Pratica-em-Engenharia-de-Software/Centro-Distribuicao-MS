@@ -1,4 +1,4 @@
-package com.pes.centro_distribuicao_ms.controller;
+package com.pes.centro_distribuicao_ms.controller.response;
 
 import lombok.Data;
 
