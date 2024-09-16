@@ -2,6 +2,7 @@ package com.pes.centro_distribuicao_ms.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,22 @@ public class CDController {
 
     @GetMapping
     @ResponseStatus(OK)
+    public ResponseEntity<?> getCD(@RequestParam(required = false) Long codCD,@RequestParam(required = false) String nameCD){
+        
+        if (codCD != null) {
+            CDResponse response = cdService.getCDByID(codCD);
+            return ResponseEntity.ok(response);
+        } else if (nameCD != null) {
+            CDResponse response = cdService.getCDByName(nameCD);
+            return ResponseEntity.ok(response);
+        } else{
+            List<CDResponse> responseList = cdService.getAllCDs();
+            return ResponseEntity.ok(responseList);
+        }
+    }
+
+    /* @GetMapping
+    @ResponseStatus(OK)
     public List<CDResponse> getAllCDs(){
         return cdService.getAllCDs();
     }
@@ -49,7 +66,7 @@ public class CDController {
     @ResponseStatus(OK)
     public CDResponse getCDByName(@RequestParam String nameCD){
         return cdService.getCDByName(nameCD);
-    }
+    } */
 
     //posts
 
