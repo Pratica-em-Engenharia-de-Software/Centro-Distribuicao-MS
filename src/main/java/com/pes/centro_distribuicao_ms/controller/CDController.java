@@ -39,13 +39,13 @@ public class CDController {
         return cdService.getAllCDs();
     }
     
-    @GetMapping
+    @GetMapping("/id")
     @ResponseStatus(OK)
     public CDResponse getCDById(@RequestParam Long codCD){
         return cdService.getCDByID(codCD);
     }
 
-    @GetMapping
+    @GetMapping("/name")
     @ResponseStatus(OK)
     public CDResponse getCDByName(@RequestParam String nameCD){
         return cdService.getCDByName(nameCD);
