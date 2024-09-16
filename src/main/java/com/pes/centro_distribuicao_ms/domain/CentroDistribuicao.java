@@ -10,12 +10,12 @@ public class CentroDistribuicao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long code;
 
     private String name;
     private String phone;
     private String email;
-    private String code;
+    
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addres_id", referencedColumnName = "id")

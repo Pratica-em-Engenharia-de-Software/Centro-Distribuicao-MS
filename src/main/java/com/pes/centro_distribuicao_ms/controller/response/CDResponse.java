@@ -8,7 +8,7 @@ public class CDResponse {
     private String name;
     private String phone;
     private String email;
-    private String code;
+    private Long code;
 
     private AddressResponse address;
 }

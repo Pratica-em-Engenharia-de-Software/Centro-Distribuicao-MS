@@ -33,7 +33,7 @@ public class CDMapper {
         CentroDistribuicao entity = new CentroDistribuicao();
         Address address = new Address();
 
-        entity.setCode(request.getCode());
+        //entity.setCode(request.getCode());
         entity.setEmail(request.getEmail());
         entity.setName(request.getName());
         entity.setPhone(request.getPhone());

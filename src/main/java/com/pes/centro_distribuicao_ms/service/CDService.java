@@ -24,7 +24,7 @@ public class CDService {
     // gets
 
     public CDResponse getCDByID(long codCD){
-        return cdRepository.findById(codCD)
+        return cdRepository.findByCode(codCD)
         .map(CDMapper::toResponse)
         .orElseThrow(() -> new ResponseStatusException(BAD_REQUEST, "CD not found"));
     }

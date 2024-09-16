@@ -13,8 +13,8 @@ public class IncludeCDRequest {
     private String phone;
     @NotBlank(message = "email is required")
     private String email;
-    @NotBlank(message = "code is required")
-    private String code;
+    //@NotBlank(message = "code is required")
+    //private String code;
 
     @Valid
     @NotBlank(message = "address is required")

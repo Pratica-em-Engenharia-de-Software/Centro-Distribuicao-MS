@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CDRepository extends JpaRepository<CentroDistribuicao,Long>{
 
-    Optional<CentroDistribuicao> findById(long id);
+    Optional<CentroDistribuicao> findByCode(long id);
 
     Optional<CentroDistribuicao> findByName(String name);
 }
