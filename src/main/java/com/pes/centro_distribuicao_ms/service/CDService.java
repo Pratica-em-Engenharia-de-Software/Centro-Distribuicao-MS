@@ -1,6 +1,7 @@
 package com.pes.centro_distribuicao_ms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.pes.centro_distribuicao_ms.controller.request.IncludeCDRequest;
@@ -14,6 +15,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import java.util.List;
 import java.util.stream.Collectors;;
 
+@Service
 public class CDService {
     
     @Autowired
@@ -40,7 +42,7 @@ public class CDService {
     }
 
     // posts
-    
+
     public CDResponse include(IncludeCDRequest request){
         CentroDistribuicao cd = CDMapper.toEntity(request);
 
