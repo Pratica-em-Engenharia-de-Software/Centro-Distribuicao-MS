@@ -13,6 +13,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
 import com.pes.centro_distribuicao_ms.controller.request.IncludeCDRequest;
+import com.pes.centro_distribuicao_ms.controller.response.CDCodeResponse;
 import com.pes.centro_distribuicao_ms.controller.response.CDResponse;
 import com.pes.centro_distribuicao_ms.service.CDService;
 
@@ -49,18 +50,18 @@ public class CDController {
             return ResponseEntity.ok(responseList);
         }
     }
-
+    
     /* @GetMapping
     @ResponseStatus(OK)
     public List<CDResponse> getAllCDs(){
         return cdService.getAllCDs();
-    }
-    
-    @GetMapping("/id")
+        }
+        
+        @GetMapping("/id")
     @ResponseStatus(OK)
     public CDResponse getCDById(@RequestParam Long codCD){
         return cdService.getCDByID(codCD);
-    }
+        }
 
     @GetMapping("/name")
     @ResponseStatus(OK)
@@ -72,9 +73,9 @@ public class CDController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public CDResponse include(@Valid @RequestBody IncludeCDRequest request){
+    public CDCodeResponse include(@Valid @RequestBody IncludeCDRequest request){
         return cdService.include(request);
     }
 
-
+    
 }

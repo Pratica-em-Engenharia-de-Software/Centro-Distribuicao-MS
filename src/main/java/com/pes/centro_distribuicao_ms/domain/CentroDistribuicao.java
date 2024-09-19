@@ -18,6 +18,6 @@ public class CentroDistribuicao {
     
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addres_id", referencedColumnName = "id")
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 }

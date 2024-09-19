@@ -2,6 +2,7 @@ package com.pes.centro_distribuicao_ms.mapper;
 
 import com.pes.centro_distribuicao_ms.controller.request.IncludeCDRequest;
 import com.pes.centro_distribuicao_ms.controller.response.AddressResponse;
+import com.pes.centro_distribuicao_ms.controller.response.CDCodeResponse;
 import com.pes.centro_distribuicao_ms.controller.response.CDResponse;
 import com.pes.centro_distribuicao_ms.domain.Address;
 import com.pes.centro_distribuicao_ms.domain.CentroDistribuicao;
@@ -48,5 +49,13 @@ public class CDMapper {
         entity.setAddress(address);
 
         return entity;
+    }
+
+    public static CDCodeResponse toCodeResponse(Long code){
+        CDCodeResponse cdCodeResponse = new CDCodeResponse();
+
+        cdCodeResponse.setCode(code);
+
+        return cdCodeResponse;
     }
 }
