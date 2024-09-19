@@ -7,16 +7,16 @@ import lombok.Data;
 @Data
 public class IncludeAddressRequest {
     
-    @NotBlank(message = "country is required")
+    @NotBlank(message = "Country is required")
     private String country;
-    @NotBlank(message = "state is required")
+    @NotBlank(message = "State is required")
     private String state;
-    @NotBlank(message = "city is required")
+    @NotBlank(message = "City is required")
     private String city;
-    @NotBlank(message = "neighborhood is required")
+    @NotBlank(message = "Neighborhood is required")
     private String neighborhood;
-    @NotBlank(message = "street is required")
+    @NotBlank(message = "Street is required")
     private String street;
-    @NotNull(message = "number is required")
+    @NotNull(message = "Number is required")
     private Integer number;
 }
