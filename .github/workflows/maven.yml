@@ -24,6 +24,17 @@ jobs:
       packages: write
       security-events: write
 
+    services:
+      mysql:
+        image: mysql:8
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_DATABASE: db_centro_distribuicao
+          MYSQL_USER: user
+          MYSQL_PASSWORD: user
+          MYSQL_ROOT_PASSWORD: root
+      
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
