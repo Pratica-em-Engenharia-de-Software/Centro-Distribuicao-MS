@@ -40,7 +40,7 @@ public class CDController {
 
     //gets
 
-    @Operation(summary = "Get a CD or a full list of CDs",description = "Return a specific CD by name or ID or the full list of the CDs")
+    @Operation(summary = "Get a CD or a full list of CDs.",description = "Return a specific CD by name or ID or the full list of the CDs.")
     @ApiResponses(value = {
     @ApiResponse(responseCode = "200", description = "CD found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CDResponse.class))),
     @ApiResponse(responseCode = "400", description = "Invalid parameters", content = @Content(mediaType = "application/json", schema = @Schema(example = "{\"error\": \"Invalid parameters\"}"))),
@@ -63,10 +63,10 @@ public class CDController {
 
     //posts
 
-    @Operation(summary = "Create a new CD")
+    @Operation(summary = "Create a new CD.",description = "Create a new CD using the given parameters.")
     @ApiResponses(value = {
-    @ApiResponse(responseCode = "201", description = "CD created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CDResponse.class))),
-    @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content(mediaType = "application/json", schema = @Schema(example = "{\"error\": \"Invalid request body\"}")))
+    @ApiResponse(responseCode = "201", description = "CD created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CDCodeResponse.class))),
+    @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content(mediaType = "application/json", schema = @Schema(example = "{\"error\": [\"Phone is required\",\n" + "\"Neighborhood is required\"]}")))
     })
     @PostMapping
     public CDCodeResponse include(@Valid @RequestBody IncludeCDRequest request){
